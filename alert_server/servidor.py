@@ -8,18 +8,18 @@ from pathlib import Path
 
 app = FastAPI()
 
-# Configurações do CORS
+# Configurações do CORS, permite todas as origens
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permite todas as origens
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Configurações do servidor
-ALARM_SOUND = "alarm.mp3"  # Som do alarme
-IMAGE_DIR = "intruders"
+ALARM_SOUND = "alarm.mp3"
+IMAGE_DIR = "images"
 
 # Verifica se o diretório de imagens existe
 Path(IMAGE_DIR).mkdir(parents=True, exist_ok=True)
@@ -40,7 +40,7 @@ def play_alarm():
             return
 
         pygame.mixer.music.load(ALARM_SOUND)
-        pygame.mixer.music.play(-1)  # Reproduzir em loop
+        pygame.mixer.music.play(-1)
     except Exception as e:
         print(f"❌ Erro ao tocar alarme: {e}")
 

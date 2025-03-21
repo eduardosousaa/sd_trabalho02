@@ -1,4 +1,4 @@
-import 'package:alert_app/screens/myHomePage.dart';
+import 'package:alert_app/screens/my_home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
